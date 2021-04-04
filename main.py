@@ -22,9 +22,13 @@ def query(prompt):
         print(headers)
         r = requests.post('https://api.openai.com/v1/engines/davinci/completions', headers=headers, data=data)
 
+        # TODO parse response and trim to code elements
+        # sample response:
+        #('{"id": "cmpl-2l2DPoXWLq88CVKW3Kk0oC0PQURPr", "object": "text_completion", "created": 1617562607, "model": "davinci:2020-05-03", "choices": [{"text": "\\n\\n<div style=\\"background-color:red;\\">\\n\\n</div>\\n\\n<div style=\\"background-color:blue;\\">\\n\\n</div>\\n\\n<div style=\\"background-color:green;\\">\\n\\n</div>\\n\\n<div style=\\"background-color:yellow;\\">\\n\\n</div>\\n\\n<div style=\\"background-color:orange;\\">\\n\\n</div>\\n\\n<div style=\\"background-color:", "index": 0, "logprobs": null, "finish_reason": "length"}]}\n', True)
+
         return r.text, True
 
-# if __name__ == "__main__":
-#     res = query('What is your name?')
-#     print(res)
+if __name__ == "__main__":
+    res = query('WHat is the html for a red box??')
+    print(res)
 
