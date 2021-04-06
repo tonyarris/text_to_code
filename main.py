@@ -17,7 +17,7 @@ def query(prompt):
         #openai.Engine.list()
 
         # construct post request for completion
-        data = json.dumps({"prompt": prompt, "max_tokens": 100, 'temperature':0.1, 'top_p':1, 'frequency_penalty':0, 'presence_penalty':0, 'stop':'?', 'n':1})
+        data = json.dumps({"prompt": prompt, "max_tokens": 100, 'temperature':0.0, 'top_p':1, 'frequency_penalty':0, 'presence_penalty':0, 'stop':'?', 'n':1})
         headers = {'Content-type':'application/json','Authorization': 'Bearer {}'.format(OPENAI_API_KEY)}
         print(headers)
         r = requests.post('https://api.openai.com/v1/engines/davinci/completions', headers=headers, data=data)
@@ -29,6 +29,6 @@ def query(prompt):
         return r.text, True
 
 if __name__ == "__main__":
-    res = query('WHat is the html for a red box??')
+    res = query('WHat is the html code for a red button??')
     print(res)
 
