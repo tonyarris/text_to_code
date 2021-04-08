@@ -18,7 +18,8 @@ def query():
     response = gpt(req)
     #print(response)
     #print(jsonify(response))
-    return response
+    print(response)
+    return jsonify(response)
 
     # except Exception as e:
     #     return render_template('index.html')
