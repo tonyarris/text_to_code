@@ -3,7 +3,7 @@ import json
 import openai
 from config import OPENAI_API_KEY
 
-def query(prompt):
+def gpt(prompt):
     # convert to string
     prompt = str(prompt)
 

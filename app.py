@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from flask_bootstrap import Bootstrap
+from main import gpt
 
 app = Flask(__name__)
 Bootstrap(app)
@@ -9,12 +10,17 @@ def home():
     if request.method == 'GET':
         return render_template('index.html')
 
-@app.route('/query',methods=['POST'])
+@app.route('/query', methods=['POST'])
 def query():
-    query = request.form.to_dict()
-    print("Your query was ".format(query))
-    response = query(query)
-    return jsonify(response)
+    # try:
+    req = request.form['req']
+    #print(req)
+    response = gpt(req)
+    #print(response)
+    #print(jsonify(response))
+    return response
 
+    # except Exception as e:
+    #     return render_template('index.html')
 if __name__ == "__main__":
     app.run(debug=True)
