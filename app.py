@@ -12,16 +12,12 @@ def home():
 
 @app.route('/query', methods=['POST'])
 def query():
-    # try:
-    req = request.form['req']
-    #print(req)
-    response = gpt(req)
-    #print(response)
-    #print(jsonify(response))
-    print(response)
-    return jsonify(response)
+    try:
+        req = request.form['req']
+        response = gpt(req)
+        return jsonify(response)
 
-    # except Exception as e:
-    #     return render_template('index.html')
+    except Exception as e:
+        return render_template('index.html'), False
 if __name__ == "__main__":
     app.run(debug=True)
