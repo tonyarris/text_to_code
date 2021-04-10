@@ -15,7 +15,7 @@ def gpt(prompt):
         openai.organization = "org-hN5K4IM6TydLmGiuBRWbzJvs"
         openai.api_key = OPENAI_API_KEY
 
-        # construct post request for completion
+        # construct post request for answer
         headers = {'Content-type':'application/json','Authorization': 'Bearer {}'.format(OPENAI_API_KEY)}
         data = json.dumps({"prompt": prompt, "max_tokens": 100, 'temperature': 0.1, 'top_p': 1, 'frequency_penalty': 0,
                            'presence_penalty': 0, 'stop': '?', 'n': 1})
@@ -28,7 +28,7 @@ def gpt(prompt):
         r = json.loads(r)
         r = json.dumps(r["choices"][0]["text"])
         print(r)
-        r = r.replace("\"",'')
+        r = r.replace("\\\"",'"')
         print(r)
 
         return r
