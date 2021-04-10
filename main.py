@@ -17,18 +17,26 @@ def gpt(prompt):
 
         # construct post request for answer
         headers = {'Content-type':'application/json','Authorization': 'Bearer {}'.format(OPENAI_API_KEY)}
-        data = json.dumps({"prompt": prompt, "max_tokens": 100, 'temperature': 0.1, 'top_p': 1, 'frequency_penalty': 0,
-                           'presence_penalty': 0, 'stop': '?', 'n': 1})
-        r = requests.post('https://api.openai.com/v1/engines/davinci/completions', headers=headers, data=data)
+        data = json.dumps({"search_model": "ada",
+                           "model": "curie",
+                           "question": prompt,
+                           "examples": [["A button with 'Submit' written on it", "<button type=\"button\">Submit</button>"],
+                                        ["A form to enter your name and surname and an enter button","<form action=\"/action_page.php\"><label for=\"fname\">First name:</label><br><input type=\"text\" id=\"fname\" name=\"fname\" value=\"John\"><br><label for=\"lname\">Last name:</label><br><input type=\"text\" id=\"lname\" name=\"lname\" value=\"Doe\"><br><br><input type=\"submit\" value=\"Submit\"></form>"]],
+                           "examples_context":"Generate the html and javascript code to realise the description given.",
+                           "documents": [],
+                           "max_tokens": 100, 'temperature': 0.1, 'n': 1})
+        r = requests.post('https://api.openai.com/v1/answers', headers=headers, data=data)
+        #print(r.content)
 
 
         # sanify response
         r = r.text
         r = r.replace('\\n','')
         r = json.loads(r)
-        r = json.dumps(r["choices"][0]["text"])
+        r = json.dumps(r["answers"][0])
         print(r)
         r = r.replace("\\\"",'"')
+        r = r.replace("---", "")
         print(r)
 
         return r
