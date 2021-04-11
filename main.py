@@ -18,13 +18,13 @@ def gpt(prompt):
         # construct post request for answer
         headers = {'Content-type':'application/json','Authorization': 'Bearer {}'.format(OPENAI_API_KEY)}
         data = json.dumps({"search_model": "ada",
-                           "model": "curie",
+                           "model": "davinci",
                            "question": prompt,
                            "examples": [["A button with 'Submit' written on it", "<button type=\"button\">Submit</button>"],
                                         ["A form to enter your name and surname and an enter button","<form action=\"/action_page.php\"><label for=\"fname\">First name:</label><br><input type=\"text\" id=\"fname\" name=\"fname\" value=\"John\"><br><label for=\"lname\">Last name:</label><br><input type=\"text\" id=\"lname\" name=\"lname\" value=\"Doe\"><br><br><input type=\"submit\" value=\"Submit\"></form>"]],
                            "examples_context":"Generate the html and javascript code to realise the description given.",
                            "documents": [],
-                           "max_tokens": 100, 'temperature': 0.1, 'n': 1})
+                           "max_tokens": 250, 'temperature': 0.9, 'n': 1})
         r = requests.post('https://api.openai.com/v1/answers', headers=headers, data=data)
         #print(r.content)
 
