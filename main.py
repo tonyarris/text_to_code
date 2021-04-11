@@ -24,7 +24,7 @@ def gpt(prompt):
                                         ["A form to enter your name and surname and an enter button","<form action=\"/action_page.php\"><label for=\"fname\">First name:</label><br><input type=\"text\" id=\"fname\" name=\"fname\" value=\"John\"><br><label for=\"lname\">Last name:</label><br><input type=\"text\" id=\"lname\" name=\"lname\" value=\"Doe\"><br><br><input type=\"submit\" value=\"Submit\"></form>"]],
                            "examples_context":"Generate the html and javascript code to realise the description given.",
                            "documents": [],
-                           "max_tokens": 250, 'temperature': 0.9, 'n': 1})
+                           "max_tokens": 250, 'temperature': 0.3, 'n': 1})
         r = requests.post('https://api.openai.com/v1/answers', headers=headers, data=data)
         #print(r.content)
 

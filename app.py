@@ -19,5 +19,10 @@ def query():
 
     except Exception as e:
         return render_template('index.html'), False
+
+@app.route('/contact', methods=['GET'])
+def contact():
+    return render_template('contact.html')
+
 if __name__ == "__main__":
     app.run(debug=True)

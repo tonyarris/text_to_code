@@ -5,8 +5,6 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
 
   <title>Autocoder</title>
 
@@ -27,10 +25,10 @@
 <body>
 
   <!-- Navigation -->
-<!--  TODO edit and add contact details-->
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Autocoder</a>
+      <a class="navbar-brand" href="/">Autocoder</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -38,11 +36,10 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
             <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="/contact">Contact</a>
           </li>
         </ul>
       </div>
@@ -56,7 +53,7 @@
 <!--      user input-->
       <div class="col-sm">
         <h1 class="mt-5">Autocoder</h1>
-        <p class="lead">Enter your prompt below:</p>
+        <p class="lead">Describe a webpage:</p>
           <div>
             <form id='promptForm' action="/query" method="post">
               <textarea form='promptForm' class="form-control" id="prompt" rows="3"></textarea>
