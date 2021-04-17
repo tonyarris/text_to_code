@@ -24,9 +24,9 @@ def gpt(prompt):
                                         ["A form to enter your name and surname and an enter button","<form action=\"/action_page.php\"><label for=\"fname\">First name:</label><br><input type=\"text\" id=\"fname\" name=\"fname\" value=\"John\"><br><label for=\"lname\">Last name:</label><br><input type=\"text\" id=\"lname\" name=\"lname\" value=\"Doe\"><br><br><input type=\"submit\" value=\"Submit\"></form>"],
                                         ["An image of the coca cola logo with a search bar underneath it.","<img src=\"https://img.icons8.com/color/452/coca-cola.png\"><br/><input type=\"text\" placeholder=\"Search..\">"],
                                         ["A small Google logo, with a search bar underneath, all on a white background.", "<style>.auto {  background-color: white;}</style><div class=\"auto\"><img src=\"https://logo-logos.com/wp-content/uploads/2016/11/Google_logo_logotype.png\" width=\"300\"><br/><input type=\"text\" placeholder=\"Search..\"></div>"]],
-                           "examples_context":"Generate the html and javascript code to realise the description given.",
+                           "examples_context":"An automatic webpage generator that sources any images or videos and displays them with HTML, CSS and javascript.",
                            "documents": [],
-                           "max_tokens": 250, 'temperature': 0.4, 'n': 1})
+                           "max_tokens": 250, 'temperature': 0.7, 'n': 1})
         r = requests.post('https://api.openai.com/v1/answers', headers=headers, data=data)
         #print(r.content)
 
@@ -44,6 +44,6 @@ def gpt(prompt):
         return r
 
 if __name__ == "__main__":
-    res = query('What is the html code for a red button??')
+    res = query('The Spotify logo and a search bar underneath.')
     print(res)
 
