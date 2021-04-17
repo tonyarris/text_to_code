@@ -1,5 +1,5 @@
+![demo](autocoder_demo.gif)
 # Autocoder
-
 Autocoder is a frontend to OpenAI's GPT-3, made with access to the beta generously provided by OpenAI at the recent [Scale Transform Conference](https://scale.com/events/transform). 
 
 It takes a description of a webpage and renders the page automatically. It is currently trained on simple html elements and uses the ```ada``` and ```davinci``` semantic and completion models respectively. The API endpoint used is ```/answers```.
